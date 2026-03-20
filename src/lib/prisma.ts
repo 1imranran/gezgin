@@ -19,14 +19,14 @@ const prismaClientSingleton = () => {
       console.error('Failed to copy SQLite database to /tmp', e);
     }
 
-    // @ts-ignore - Prisma 5 type definitions sometimes hide datasources when engineType is library
+    // Prisma 5 type definitions sometimes hide datasources when engineType is library
     return new PrismaClient({
       datasources: {
         db: {
           url: 'file:/tmp/dev.db',
         },
       },
-    })
+    } as any)
   }
 
   return new PrismaClient()
