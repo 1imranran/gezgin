@@ -1,0 +1,39 @@
+FAIL __tests__/placeService.test.ts
+  ● Test suite failed to run
+
+    PrismaClientInitializationError: `PrismaClient` needs to be constructed with a non-empty, valid `PrismaClientOptions`:
+
+    ```
+    new PrismaClient({
+      ...
+    })
+    ```
+
+    or
+
+    ```
+    constructor() {
+      super({ ... });
+    }
+    ```
+
+      2 |
+      3 | const prismaClientSingleton = () => {
+    > 4 |   return new PrismaClient()
+        |          ^
+      5 | }
+      6 |
+      7 | declare global {
+
+                
+      at new t (node_modules/@prisma/client/src/runtime/getPrismaClient.ts:320:15)
+      at prismaClientSingleton (src/lib/prisma.ts:4:10)
+      at Object.prismaClientSingleton (src/lib/prisma.ts:11:43)
+      at Object.<anonymous> (src/services/placeService.ts:25:56)
+      at Object.<anonymous> (__tests__/placeService.test.ts:7:23)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        0.405 s
+Ran all test suites matching __tests__/placeService.test.ts.
